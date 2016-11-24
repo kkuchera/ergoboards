@@ -22,7 +22,7 @@
 
     function display_index_pages($rowcount, $maxrows, $current_page) {
         if ($rowcount > $maxrows) {
-            echo "<ul class=index_pages>\n";
+            echo "<ul class=index-pages>\n";
             for ($i=floor($rowcount/$maxrows); $i >= 0; $i--) {
                 if ($current_page == $i+1) {
                     echo "<li>".($i+1)."</li>\n";
@@ -111,92 +111,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ergohacking | Filter for ergonomic hacking keyboards.</title>
+    <title>Ergoboards | Filter for ergonomic keyboards.</title>
 
     <link href="stylesheet.css" rel="stylesheet">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-87949555-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 </head>
 <body>
 <article>
 
-<header>
-    <h1><a href="/">Ergohacking</a></h1>
-    <p>Filter for ergonomic hacking keyboards.</p>
-</header>
-
 <section>
-
-<!-- <h2>Filter</h2> -->
 <form action="filter.php" method="get" id="filter">
     <ul>
     	<li><input name="commit" type="submit" value="Results"></li>
         <li>Design</li>
         <ul>
-            <li><label><input type="checkbox" name="design[]" id="design_standard" value="0"<?php echo_checked("design",0);?>> non-split (NS)</label></li>
-            <li><label><input type="checkbox" name="design[]" id="design_wave" value="1"<?php echo_checked("design",1);?>> curved (C)</label></li>
-            <li><label><input type="checkbox" name="design[]" id="design_split" value="2"<?php echo_checked("design",2);?>> fixed-split (SP)</label></li>
-            <li><label><input type="checkbox" name="design[]" id="design_full_split" value="3"<?php echo_checked("design",3);?>> full-split (FS)</label></li>
+            <li><label><input type="checkbox" name="design[]" id="design-standard" value="0"<?php echo_checked("design",0);?>> non-split (NS)</label></li>
+            <li><label><input type="checkbox" name="design[]" id="design-wave" value="1"<?php echo_checked("design",1);?>> curved (C)</label></li>
+            <li><label><input type="checkbox" name="design[]" id="design-split" value="2"<?php echo_checked("design",2);?>> fixed-split (SP)</label></li>
+            <li><label><input type="checkbox" name="design[]" id="design-full-split" value="3"<?php echo_checked("design",3);?>> full-split (FS)</label></li>
         </ul>
 
-        <li class="feature_class">Size</li>
+        <li class="feature-class">Size</li>
         <ul>
-            <li><label><input type="checkbox" name="size[]" id="size_full" value="0"<?php echo_checked("size",0);?>> full size (FS)</label></li>
-            <li><label><input type="checkbox" name="size[]" id="size_tenkeyless" value="1"<?php echo_checked("size",1);?>> tenkeyless (TKL)</label></li>
-            <li><label><input type="checkbox" name="size[]" id="size_compact" value="2"<?php echo_checked("size",2);?>> compact (CMP)</label></li>
-            <li><label><input type="checkbox" name="size[]" id="size_keyless" value="3"<?php echo_checked("size",3);?>> keyless (KL)</label></li>
+            <li><label><input type="checkbox" name="size[]" id="size-full" value="0"<?php echo_checked("size",0);?>> full size (FS)</label></li>
+            <li><label><input type="checkbox" name="size[]" id="size-tenkeyless" value="1"<?php echo_checked("size",1);?>> tenkeyless (TKL)</label></li>
+            <li><label><input type="checkbox" name="size[]" id="size-compact" value="2"<?php echo_checked("size",2);?>> compact (CMP)</label></li>
+            <li><label><input type="checkbox" name="size[]" id="size-keyless" value="3"<?php echo_checked("size",3);?>> keyless (KL)</label></li>
         </ul>
 
         <li>Switch</li>
         <ul>
-            <li><label><input type="checkbox" name="switch[]" id="switch_membrane" value="0"<?php echo_checked("switch",0);?>> membrane rubber dome (M)</label></li>
-            <li><label><input type="checkbox" name="switch[]" id="switch_cherry" value="1"<?php echo_checked("switch",1);?>> cherry mx/clones (C)</label></li>
-            <li><label><input type="checkbox" name="switch[]" id="switch_alps" value="2"<?php echo_checked("switch",2);?>> alps/clones (A)</label></li>
-            <li><label><input type="checkbox" name="switch[]" id="switch_topre" value="3"<?php echo_checked("switch",3);?>> topre/clones (T)</label></li>
-            <li><label><input type="checkbox" name="switch[]" id="switch_buckling_spring" value="4"<?php echo_checked("switch",4);?>> buckling spring (BS)</label></li>
+            <li><label><input type="checkbox" name="switch[]" id="switch-membrane" value="0"<?php echo_checked("switch",0);?>> membrane rubber dome (M)</label></li>
+            <li><label><input type="checkbox" name="switch[]" id="switch-cherry" value="1"<?php echo_checked("switch",1);?>> cherry mx/clones (C)</label></li>
+            <li><label><input type="checkbox" name="switch[]" id="switch-alps" value="2"<?php echo_checked("switch",2);?>> alps/clones (A)</label></li>
+            <li><label><input type="checkbox" name="switch[]" id="switch-topre" value="3"<?php echo_checked("switch",3);?>> topre/clones (T)</label></li>
+            <li><label><input type="checkbox" name="switch[]" id="switch-buckling_spring" value="4"<?php echo_checked("switch",4);?>> buckling spring (BS)</label></li>
         </ul>
   
         <li>Key Alignment</li>
         <ul>
-            <li><label><input type="checkbox" name="alignment[]" id="alignment_staggered" value="0"<?php echo_checked("alignment",0);?>> Asymmetrical (A)</label></li>
-            <li><label><input type="checkbox" name="alignment[]" id="alignment_vertical" value="1"<?php echo_checked("alignment",1);?>> Symmetrical (S)</label></li>
+            <li><label><input type="checkbox" name="alignment[]" id="alignment-staggered" value="0"<?php echo_checked("alignment",0);?>> Asymmetrical (A)</label></li>
+            <li><label><input type="checkbox" name="alignment[]" id="alignment-vertical" value="1"<?php echo_checked("alignment",1);?>> Symmetrical (S)</label></li>
         </ul>
 
         <li>Tented</li>
         <ul>
-            <li><label><input type="checkbox" name="tented[]" id="tented_non-tented" value="0"<?php echo_checked("tented",0);?>> non-tented (NT)</label></li>
-            <li><label><input type="checkbox" name="tented[]" id="tented_tented" value="1"<?php echo_checked("tented",1);?>> tented (T)</label></li>
-            <li><label><input type="checkbox" name="tented[]" id="tented_fully_tentable" value="2"<?php echo_checked("tented",2);?>> fully-tentable (FT)</label></li>
+            <li><label><input type="checkbox" name="tented[]" id="tented-non-tented" value="0"<?php echo_checked("tented",0);?>> non-tented (NT)</label></li>
+            <li><label><input type="checkbox" name="tented[]" id="tented-tented" value="1"<?php echo_checked("tented",1);?>> tented (T)</label></li>
+            <li><label><input type="checkbox" name="tented[]" id="tented-fully-tentable" value="2"<?php echo_checked("tented",2);?>> fully-tentable (FT)</label></li>
         </ul>
 
         <li>Contour</li>
         <ul>
-            <li><label><input type="checkbox" name="contour[]" id="contour_flat" value="0"<?php echo_checked("contour",0);?>> flat (F)</label></li>
-            <li><label><input type="checkbox" name="contour[]" id="contour_contoured" value="1"<?php echo_checked("contour",1);?>> contoured (C)</label></li>
+            <li><label><input type="checkbox" name="contour[]" id="contour-flat" value="0"<?php echo_checked("contour",0);?>> flat (F)</label></li>
+            <li><label><input type="checkbox" name="contour[]" id="contour-contoured" value="1"<?php echo_checked("contour",1);?>> contoured (C)</label></li>
         </ul>
 
         <li>Backlight</li>
         <ul>
-            <li><label><input type="checkbox" name="backlight[]" id="backlight_no" value="0"<?php echo_checked("backlight",0);?>> no (N)</label></li>
-            <li><label><input type="checkbox" name="backlight[]" id="backlight_yes" value="1"<?php echo_checked("backlight",1);?>> yes (Y)</label></li>
+            <li><label><input type="checkbox" name="backlight[]" id="backlight-no" value="0"<?php echo_checked("backlight",0);?>> no (N)</label></li>
+            <li><label><input type="checkbox" name="backlight[]" id="backlight-yes" value="1"<?php echo_checked("backlight",1);?>> yes (Y)</label></li>
         </ul>
 
         <!-- <li>USB Hub</li>
         <ul>
-            <li><label><input type="checkbox" name="usb_hub[]" id="usb_hub_yes" value="0"> yes</label></li>
-            <li><label><input type="checkbox" name="usb_hub[]" id="usb_hub_no" value="1"> no</label></li>
+            <li><label><input type="checkbox" name="usb_hub[]" id="usb-hub-yes" value="0"> yes</label></li>
+            <li><label><input type="checkbox" name="usb_hub[]" id="usb-hub-no" value="1"> no</label></li>
         </ul>-->
 
         <li>Cable</li>
         <ul>
-            <li><label><input type="checkbox" name="cable[]" id="cable_non-detachable" value="0"<?php echo_checked("cable",0);?>> non-detachable (ND)</label></li>
-            <li><label><input type="checkbox" name="cable[]" id="cable_detachable" value="1"<?php echo_checked("cable",1);?>> detachable (D)</label></li>
-            <li><label><input type="checkbox" name="cable[]" id="cable_wireless" value="2"<?php echo_checked("cable",2);?>> wireless (W)</label></li>
+            <li><label><input type="checkbox" name="cable[]" id="cable-non-detachable" value="0"<?php echo_checked("cable",0);?>> non-detachable (ND)</label></li>
+            <li><label><input type="checkbox" name="cable[]" id="cable-detachable" value="1"<?php echo_checked("cable",1);?>> detachable (D)</label></li>
+            <li><label><input type="checkbox" name="cable[]" id="cable-wireless" value="2"<?php echo_checked("cable",2);?>> wireless (W)</label></li>
         </ul>
     </ul>
 
 </form>
 </section>
 
-<section id="product_list">
+<section id="product-list">
 
 <?php
     display_index_pages($rowcount, $maxrows, $page);
@@ -287,20 +290,29 @@
 </section>
 
 <footer>
-    <p><a href="/about.html">About</a></p>
-    <p><a href="mailto:support@ergohacking.com">Contact</a></p>
+    <ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="mailto:info@ergoboards.com">Contact</a></li>
+    </ul>
 </footer>
 
 </article>
 
-<form action="search.php" method="get" id="search">
-    <input id="q" name="q" type="text"<?php echo isset($_GET['commit']) && $_GET["commit"]=="Search" ? ' value="'.$_GET['q'].'"' : '' ?>/>
-    <input name="commit" type="submit" value="Search" />
-</form>
+<nav>
+    <section id="nav-main">
+        <ul>
+            <li><a href="/">Ergoboards</a></li>
+        </ul>
+    </section>
 
+    <form action="search.php" method="get" id="search">
+        <input id="q" name="q" type="text"<?php echo isset($_GET['commit']) && $_GET["commit"]=="Search" ? ' value="'.$_GET['q'].'"' : '' ?>/>
+        <input name="commit" type="submit" value="Search" />
+    </form>
+</nav>
 
-<footer id="site_footer">
-    <p>&copy; 2016, ergohacking.com, <a href="/termsofuse.html">Terms of use</a></p>
+<footer id="site-footer">
+    <p>&copy; 2016, ergoboards.com, <a href="/termsofuse.html">Terms of use</a></p>
 </footer>
 
 </body>

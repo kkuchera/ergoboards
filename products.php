@@ -13,19 +13,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ergohacking | Filter for ergonomic hacking keyboards.</title>
+    <title>Ergoboards | Filter for ergonomic keyboards.</title>
 
     <link href="stylesheet.css" rel="stylesheet">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-87949555-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 </head>
 <body>
-<article>
+<article id="content">
 
 <header>
-    <h1>Ergohacking</h1>
-    <p>Filter for ergonomic hacking keyboards.</p>
+    <h1>Ergoboards</h1>
+    <p>Filter for ergonomic keyboards.</p>
 </header>
 
-<section id="main_content">
+<section id="main-content">
 
 <h2><?php echo $row[4] ?></h2>
 
@@ -33,7 +43,7 @@
     if (is_null($row[16])) {
         echo '<a href="'.$row[13].'" target="_blank"><img src="'.$row[3].'" width="'.$row[17].'" height="'.$row[18].'" alt="Keyboard Image"></a></td>'."\n"; // keyboard image
     } else {
-        echo '<a href="https://www.amazon.com/dp/'.$row[16].'" target="_blank"><img src="'.$row[3].'" width="'.$row[17].'" height="'.$row[18].'" alt="Keyboard Image"></a></td>'."\n"; // keyboard image
+        echo '<a href="https://www.amazon.com/dp/'.$row[16].'/?tag=muted09-20" target="_blank"><img src="'.$row[3].'" width="'.$row[17].'" height="'.$row[18].'" alt="Keyboard Image"></a></td>'."\n"; // keyboard image
     }
 ?>
 
@@ -48,7 +58,7 @@
 		if (is_null($row[16])) {
 		    echo $row[12];
 		} else {
-		    echo '<a href="https://www.amazon.com/dp/'.$row[16].'" target="_blank">'.$row[12].' on Amazon</a>';
+		    echo '<a href="https://www.amazon.com/dp/'.$row[16].'/?tag=muted09-20" target="_blank">'.$row[12].' on Amazon</a>';
 		}
 	    ?></td>
     </tr>
@@ -93,20 +103,31 @@
 </section>
 
 <footer>
-    <p><a href="/about.html">About</a></p>
-    <p><a href="mailto:support@ergohacking.com">Contact</a></p>
+    <ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="mailto:info@ergoboards.com">Contact</a></li>
+    </ul>
 </footer>
 
 </article>
 
-<form action="search.php" method="get" id="search">
-    <input id="q" name="q" type="text"/>
-    <input name="commit" type="submit" value="Search" />
-</form>
+<nav>
 
+    <section id="nav-main">
+        <ul>
+            <li><a href="/">Ergoboards</a></li>
+        </ul>
+    </section>
 
-<footer id="site_footer">
-    <p>&copy; 2016, ergohacking.com, <a href="/termsofuse.html">Terms of use</a></p>
+    <form action="search.php" method="get" id="search">
+        <input id="q" name="q" type="text"<?php echo isset($_GET['commit']) && $_GET["commit"]=="Search" ? ' value="'.$_GET['q'].'"' : '' ?>/>
+        <input name="commit" type="submit" value="Search" />
+    </form>
+
+</nav>
+
+<footer id="site-footer">
+    <p>&copy; 2016, ergoboards.com, <a href="/termsofuse.html">Terms of use</a></p>
 </footer>
 
 </body>
